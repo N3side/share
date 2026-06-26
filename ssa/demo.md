@@ -1,5 +1,5 @@
+![](cache/Pasted%20image%2020260626154645.png)
 
-![[cache/Pasted image 20260626154645.png]]
 
 ISP 
 ```
@@ -394,14 +394,14 @@ cp /var/named/named.empty /opt/dns/au-team.irpo
 nano /opt/dns/au-team.irpo
 ```
 
-![[cache/kYfC212XQqJZfH9JMbr5Mj-ukI1sonblFnkQTvZnlcsC65Hz82heGbKtEcsr6iJuag01TKF4qD6sMvL8HDPIgbFZ 1.jpg]]
+![](cache/kYfC212XQqJZfH9JMbr5Mj-ukI1sonblFnkQTvZnlcsC65Hz82heGbKtEcsr6iJuag01TKF4qD6sMvL8HDPIgbFZ%201.jpg)
 
 ```
 cp /var/named/named.empty /opt/dns/100.168.192.in-addr.arpa 
 nano 100.168.192.in-addr.arpa 
 ```
 
-![[cache/6B_nma4v-zG5mwpPg3YPvE_N6-1XIvY95OwY07jMUk7N2TH568TDKF1Rry3rX-aj5zhH8fUI25mU6Di1l9B4Rt06.jpg]]
+![](cache/6B_nma4v-zG5mwpPg3YPvE_N6-1XIvY95OwY07jMUk7N2TH568TDKF1Rry3rX-aj5zhH8fUI25mU6Di1l9B4Rt06.jpg)
 
 ```
 cp /var/named/named.empty /otp/dns/200.168.192.in-addr.arpa 
@@ -409,7 +409,7 @@ nano 200.168.192.in-addr.arpa
 ```
 
 
-![[cache/DjdkrNHYbS4WfmhaN-A8Aibo2j_ymMZ-H2uIpnnerOShXE1sggoXceGNiMLMz42hbSGkFcyADouCgBV9D8AwpDz4 1.jpg]]
+![](cache/DjdkrNHYbS4WfmhaN-A8Aibo2j_ymMZ-H2uIpnnerOShXE1sggoXceGNiMLMz42hbSGkFcyADouCgBV9D8AwpDz4%201.jpg)
 
 
 ```
