@@ -6,7 +6,7 @@ The goal of the term project is to develop a basic IT infrastructure model for a
 
 The company doesn't work with state orders, which frees it from (освобождает от) strict (строгий) rules with import substituion (импортозамещение) and Federal law No. 152-FZ. Company doesn't need to deploy its websites on its own servers, because it's too expensive. Instead, you can rent a virtual private server (for example ubuntu) starting from 200 rubles per month. This way you don't need to buy expensive equipment or pay engineers.
 
-there is 45 employeers:
+there are 45 employeers:
 - frontend developers,
 - backend,
 - devops engineers,
