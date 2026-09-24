@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Без названия.md",
+                "file": "eng/avtomat.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Без названия"
+              "title": "avtomat"
             }
           }
         ]
@@ -190,8 +190,8 @@
   },
   "active": "ad856fde13822181",
   "lastOpenFiles": [
-    "philosophy/2026-09-24.md",
     "Без названия.md",
+    "philosophy/2026-09-24.md",
     "philosophy/2026-09-03.md",
     "philosophy/2026-09-12.md",
     "philosophy/2026-09-19.md",

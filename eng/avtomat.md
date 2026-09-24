@@ -31,3 +31,5 @@ There is a communication closer diagram
 The closer is made full of metal and has 17 units height and useful depth equals 700 mm. Patch panels are used for the neat organization of cable systems, preventing wire tangling.
 
 I chosed macbooks for developers, linux is bad operating system for personal use. Macbooks are fast, small, full aluminium, all works like in windows and a lot of programs for windows run in macos. macos is unix based system, a lot of commands in terminal look alike linux's commands and docker runs natively. 
+
+1е
