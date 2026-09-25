@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "eng/avtomat.md",
+                "file": "pravo/2026-09-25.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "avtomat"
+              "title": "2026-09-25"
             }
           }
         ]
@@ -188,8 +188,10 @@
       "bases:Создать новую базу": false
     }
   },
-  "active": "ad856fde13822181",
+  "active": "1d7dae9a5e625496",
   "lastOpenFiles": [
+    "eng/avtomat.md",
+    "pravo/2026-09-25.md",
     "Без названия.md",
     "philosophy/2026-09-24.md",
     "philosophy/2026-09-03.md",
@@ -200,7 +202,6 @@
     "cache/Pasted image 20260626154645.png",
     "cache/kYfC212XQqJZfH9JMbr5Mj-ukI1sonblFnkQTvZnlcsC65Hz82heGbKtEcsr6iJuag01TKF4qD6sMvL8HDPIgbFZ 1.jpg",
     "cache/DjdkrNHYbS4WfmhaN-A8Aibo2j_ymMZ-H2uIpnnerOShXE1sggoXceGNiMLMz42hbSGkFcyADouCgBV9D8AwpDz4 1.jpg",
-    "eng/avtomat.md",
     "pravo/start.md",
     "philosophy/start.md",
     "pravo/2026-09-07.md",
