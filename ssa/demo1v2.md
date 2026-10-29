@@ -36,6 +36,10 @@ BR-FW
 hostnamectl hostname br-fw.au-team.irpo
 ```
 
+
+# NMTUI
+
+
 ISP  
 ```
 ens34: 172.16.1.1 /28 
