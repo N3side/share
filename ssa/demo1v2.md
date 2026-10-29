@@ -217,6 +217,7 @@ Banner /etc/ssh/banner.txt 
 Разрешаем подключение по порту 2027
 ```
 nano /etc/selinux/config // SELINUX=disable
+setenforce 0
 ```
 
 Перезапускаем ssh 
@@ -330,18 +331,18 @@ router ospf
 ```
 conf t
 router ospf
-network 192.168.100.0/27 area 0 
-network 192.168.200.0/27 area 0 
-network 10.10.10.0/30 area 0
-ospf router-id 1.1.1.1
+ network 192.168.100.0/27 area 0 
+ network 192.168.200.0/27 area 0 
+ network 10.10.10.0/30 area 0
+ ospf router-id 1.1.1.1
  passive-interface ens33
  passive-interface ens34
  passive-interface ens35
  area 0 authentication
- exit
+ exit 
 interface tun0
- ip ospf authentication
- ip ospf authentication-key P@ssw0rd
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 P@ssw0rd
  do wr
  exit
 exit
@@ -360,8 +361,8 @@ router ospf
  area 0 authentication
  exit
 interface tun0
- ip ospf authentication
- ip ospf authentication-key P@ssw0rd
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 P@ssw0rd
  do wr
  exit
 exit
