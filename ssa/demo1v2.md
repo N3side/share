@@ -142,9 +142,6 @@ iptables-save > /etc/sysconfig/iptables 
 
 ПРОВЕРЯЕМ ПИНГИ НА 8.8.8.8 С HQ-RTR и BR-RTR
 
-
-
-
 ### НА HQ-RTR И BR-RTR:
 
 ```
@@ -155,6 +152,7 @@ iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 iptables-save > /etc/sysconfig/iptables
 ```
 
+Проверяем пинг с br-fw
 
 
   
