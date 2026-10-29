@@ -216,7 +216,7 @@ Banner /etc/ssh/banner.txt 
 
 Разрешаем подключение по порту 2027
 ```
-semanage port -a -t ssh_port_t -p tcp 2027 
+nano /etc/selinux/config // SELINUX=disable
 ```
 
 Перезапускаем ssh 
