@@ -162,10 +162,9 @@ HQ-RTR
 ```
 dnf install dhcp-server
 nano /etc/dhcp/dhcpd.conf
-subnet 192.168.200.0 netmask 255.255.255.224 { 
-	range 192.168.200.2 192.168.200.30; 
-	option routers 192.168.200.1; 
-	option broadcast-address 192.168.200.31; 
+subnet 192.168.200.0 netmask 255.255.255.240 { 
+	range 192.168.200.2 192.168.200.14; 
+	option routers 192.168.200.1;
 	option domain-name-servers 192.168.100.10; 
 	option domain-name “au-team.irpo”;
 }
