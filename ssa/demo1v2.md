@@ -141,6 +141,22 @@ iptables-save > /etc/sysconfig/iptables 
 ```
 
 ПРОВЕРЯЕМ ПИНГИ НА 8.8.8.8 С HQ-RTR и BR-RTR
+
+
+
+
+### НА HQ-RTR И BR-RTR:
+
+```
+dnf install iptables-services
+systemctl enable --now iptables
+iptables -F
+iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
+iptables-save > /etc/sysconfig/iptables
+```
+
+
+
   
 Настройте протокол динамической конфигурации хостов для сети в сторону HQ-CLI
 
@@ -287,17 +303,6 @@ nmtui> изменить подключение> добавить >ip-тунне�
 nmcli connection modify tun0 ip-tunnel.ttl 64
 ```
 Проверяем пинги с двух роутеров на 10.10.10.1 и 10.10.10.2
-
-
-### НА HQ-RTR И BR-RTR:
-
-```
-dnf install iptables-services
-systemctl enable --now iptables
-iptables -F
-iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
-iptables-save > /etc/sysconfig/iptables
-```
 
 
 ## Обеспечьте динамическую маршрутизацию на маршрутизаторах HQ-RTR и BR-RTR, и BR-FW:
