@@ -70,7 +70,7 @@ ens33:
 	172.16.2.2/28
 	172.16.2.1
 	10.39.0.1
-ens34: 172.30.100.1/27
+ens34: 172.30.100.1/30
 ```
 
 BR-FW
@@ -85,8 +85,8 @@ ens34: 172.30.200.1/28
 BR-SRV 
 ```
 ens33:
-	172.30.100.10/27 
-	172.30.100.1
+	172.30.200.10/28 
+	172.30.200.1
 ```
 
 HQ-CLI
@@ -353,11 +353,10 @@ exit
 
 ```
 router ospf
- network 172.30.100.0/27 area 0
+ network 172.30.100.0/30 area 0
  network 10.10.10.0/30 area 0
  ospf router-id 2.2.2.2
  passive-interface ens33
- passive-interface ens34
  area 0 authentication
  exit
 interface tun0
@@ -379,7 +378,7 @@ exit
 
 ```
 router ospf
- network 172.30.100.0/27 area 0
+ network 172.30.100.0/30 area 0
  network 172.30.200.0/28 area 0
  ospf router-id 3.3.3.3
  passive-interface ens34
