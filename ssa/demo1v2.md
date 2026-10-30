@@ -53,7 +53,7 @@ ens33:
 	172.16.1.1
     10.39.0.1
 ens34.vlan100: 192.168.100.1/27
-ens34.vlan200: 192.168.200.1/27 
+ens34.vlan200: 192.168.200.1/28
 ens34.vlan999: 192.168.99.1/29 
 ```
 
@@ -332,7 +332,8 @@ router ospf
 conf t
 router ospf
  network 192.168.100.0/27 area 0 
- network 192.168.200.0/27 area 0 
+ network 192.168.200.0/28 area 0 
+ network 192.168.99.0/29 area 0 
  network 10.10.10.0/30 area 0
  ospf router-id 1.1.1.1
  passive-interface ens33
@@ -400,7 +401,7 @@ nano /etc/named.conf
 
 в строчке  listen-on port 53{any; };
 allow-query  {any; }; после этой строчки пишем 
-forwarders {10.39.0.1; };
+forwarders {77.88.8.7; };
 ```
  
 
@@ -415,9 +416,9 @@ zone "100.168.192.in-addr.arpa" IN {
 	type master;
 	file "/opt/dns/100.168.192.in-addr.arpa";
 };
-zone "200.168.192.in-addr.arpa" IN {
+zone "200.30.172.in-addr.arpa" IN {
 	type master;
-	file "/opt/dns/200.168.192.in-addr.arpa";
+	file "/opt/dns/200.30.172.in-addr.arpa";
 };
 ```
 
@@ -429,29 +430,72 @@ cp /var/named/named.empty /opt/dns/au-team.irpo
 nano /opt/dns/au-team.irpo
 ```
 
+```/opt/dns/au-team.irpo
+$TTL 3H
+au-team.irpo.    IN SOA    au-team.irpo. au-team.irpo. (
+									   0       ; serial
+									   1D      ; refresh
+									   1H      ; retry
+									   1W      ; expire
+									   3H      ; minimum
+)
 
+@       NS hq-srv.au-team.irpo.
+hq-rtr  IN A 192.168.100.1
+hq-rtr  IN A 192.168.200.1
+br-rtr  IN A 172.30.100.1
+hq-srv  IN A 192.168.100.10
+hq-cli  IN A 192.168.200.2
+br-fw   IN A 172.30.100.1
+br-srv  IN A 172.30.200.10
+docker  IN A 172.16.1.1
+web     IN A 172.16.2.1
+```
 
-
-![](/cache/kYfC212XQqJZfH9JMbr5Mj-ukI1sonblFnkQTvZnlcsC65Hz82heGbKtEcsr6iJuag01TKF4qD6sMvL8HDPIgbFZ%201.jpg)
+---
 
 ```
 cp /var/named/named.empty /opt/dns/100.168.192.in-addr.arpa 
 nano 100.168.192.in-addr.arpa 
 ```
 
-![](/cache/6B_nma4v-zG5mwpPg3YPvE_N6-1XIvY95OwY07jMUk7N2TH568TDKF1Rry3rX-aj5zhH8fUI25mU6Di1l9B4Rt06.jpg)
+```
+$TTL 3H
+@  IN SOA  au.team.irpo. au-team.irpo. (
+										0       ; serial
+										1D      ; refresh
+										1H      ; retry
+										1W      ; expire
+										3H      ; minimum
+)
+
+   NS  hq-srv.au-team.irpo.
+10 PTR hq-srv.au-team.irpo. 
+```
 
 ```
-cp /var/named/named.empty /otp/dns/200.168.192.in-addr.arpa 
-nano 200.168.192.in-addr.arpa 
+cp /var/named/named.empty /otp/dns/200.30.172.in-addr.arpa
+nano 200.30.172.in-addr.arpa
 ```
 
-
-![](/cache/DjdkrNHYbS4WfmhaN-A8Aibo2j_ymMZ-H2uIpnnerOShXE1sggoXceGNiMLMz42hbSGkFcyADouCgBV9D8AwpDz4%201.jpg)
-
+---
 
 ```
-chmod -R 777 /opt/dns 
+$TTL 3H
+@  IN SOA  au.team.irpo. au-team.irpo. (
+										0       ; serial
+										1D      ; refresh
+										1H      ; retry
+										1W      ; expire
+										3H      ; minimum
+)
+
+   NS  hq-srv.au-team.irpo.
+10 PTR br-srv.au-team.irpo. 
+```
+
+```
+chown -R named:named /opt/dns/
 ```
 
 ПРОВЕРЯЕМ КОНФИГУРАЦИЮ И ИСПРАВЛЯЕМ ОШИБКИ ЕСЛИ ЕСТЬ 
@@ -482,6 +526,6 @@ ping ya.ru
 
 ```
 timedatectl set-timezone Europe/Moscow 
-timedatectl (ПРОВЕРИТЬ ЗОНУ, ПО ЗАДАНИЮ ВРЕМЯ МЕНЯТЬ НЕ 
-ПРОСЯТ)
+timedatectl
 ```
+(ПРОВЕРИТЬ ЗОНУ, ПО ЗАДАНИЮ ВРЕМЯ МЕНЯТЬ НЕ ПРОСЯТ)
