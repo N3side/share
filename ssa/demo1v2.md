@@ -335,10 +335,9 @@ router ospf
  network 192.168.200.0/28 area 0 
  network 192.168.99.0/29 area 0 
  network 10.10.10.0/30 area 0
- ospf router-id 1.1.1.1
+ ospf router-id 172.16.1.2
  passive-interface ens33
  passive-interface ens34
- passive-interface ens35
  area 0 authentication
  exit 
 interface tun0
@@ -356,7 +355,7 @@ exit
 router ospf
  network 172.30.100.0/30 area 0
  network 10.10.10.0/30 area 0
- ospf router-id 2.2.2.2
+ ospf router-id 172.16.2.2
  passive-interface ens33
  area 0 authentication
  exit
@@ -381,7 +380,7 @@ exit
 router ospf
  network 172.30.100.0/30 area 0
  network 172.30.200.0/28 area 0
- ospf router-id 3.3.3.3
+ ospf router-id 172.30.100.2
  passive-interface ens34
  area 0 authentication
  do wr
