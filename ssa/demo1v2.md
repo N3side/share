@@ -1,4 +1,4 @@
-![](image%20(23).png)
+![](/cache/image%20(23).png)
 
 
 ISP 
@@ -209,7 +209,6 @@ Port 2027 
 AllowUsers sshuser 
 MaxAuthTries 2 
 Banner /etc/ssh/banner.txt 
-
 ```
 
 Сохраняем и выходим
@@ -232,14 +231,8 @@ sshd -t -f /etc/ssh/sshd_config
 
 ### Проверка подключения по SSH
 
-BR-RTR
 ```
-ssh -l sshuser 172.30.100.10 -p 2027
-```
-
-HQ-RTR
-```
-ssh -l sshuser 192.168.100.10 -p 2027
+ssh -l sshuser 127.0.0.1 -p 2027
 ```
 
 ---
@@ -257,10 +250,14 @@ echo “net_admin ALL=(ALL) NOPASSWD: ALL” >> /etc/sudoers  
 
 
 
-
 ## Туннель м-у сетями HQ и BR на маршах HQ-RTR и BR-RTR
 
 HQ-RTR
+
+```
+nmcli connection modify tun0 ip-tunnel.ttl 64
+```
+
 ```
 nmtui> изменить подключение> добавить >ip-туннель
 Имя профиля: tun0
@@ -272,16 +269,14 @@ nmtui> изменить подключение> добавить >ip-тунне�
 Конфигурация: ipv4 вручную 
 Адреса: 10.10.10.1/30
 ```
-И перезапускаем tunnel через nmtui (выключаем и включаем 
-интерфейс) 
 
-без этой херни тоже работать не будет
+
+BR-RTR
+
 ```
 nmcli connection modify tun0 ip-tunnel.ttl 64
 ```
 
-
-BR-RTR
 ```
 nmtui> изменить подключение> добавить >ip-туннель
 Имя профиля: tun0
@@ -293,13 +288,7 @@ nmtui> изменить подключение> добавить >ip-тунне�
 Конфигурация: ipv4 вручную 
 Адреса: 10.10.10.2/30
 ```
-И перезапускаем tunnel через nmtui (выключаем и включаем 
-интерфейс) 
 
-без этой херни тоже работать не будет
-```
-nmcli connection modify tun0 ip-tunnel.ttl 64
-```
 Проверяем пинги с двух роутеров на 10.10.10.1 и 10.10.10.2
 
 
@@ -335,11 +324,9 @@ router ospf
  network 192.168.200.0/28 area 0 
  network 192.168.99.0/29 area 0 
  network 10.10.10.0/30 area 0
- ospf router-id 1.1.1.1
+ ospf router-id 172.16.1.2
  passive-interface ens33
  passive-interface ens34
- passive-interface ens35
- area 0 authentication
  exit 
 interface tun0
  ip ospf authentication message-digest
@@ -350,15 +337,14 @@ exit
 exit
 ```
 
-Команды для BR-RTRy
+Команды для BR-RTR
 
 ```
 router ospf
  network 172.30.100.0/30 area 0
  network 10.10.10.0/30 area 0
- ospf router-id 2.2.2.2
+ ospf router-id 172.30.2.2
  passive-interface ens33
- area 0 authentication
  exit
 interface tun0
  ip ospf authentication message-digest
@@ -372,8 +358,9 @@ exit
 Проверяем на двух устройствах sh ip ospf neighbor
 
 после этого видимо между hq-srv и br-srv начнет пинговать
- 192.168.100.10 <-> 172.16.30.10
-
+```
+192.168.100.10 <-> 172.16.200.10
+```
 
 Команды для BR-FW
 
@@ -381,9 +368,8 @@ exit
 router ospf
  network 172.30.100.0/30 area 0
  network 172.30.200.0/28 area 0
- ospf router-id 3.3.3.3
+ ospf router-id 172.30.100.2
  passive-interface ens34
- area 0 authentication
  do wr
  exit
 exit
