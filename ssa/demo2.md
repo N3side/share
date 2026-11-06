@@ -201,26 +201,6 @@ nano /etc/krb5.conf
 Приводим файл к следующему виду:
 
 ```ini
-[realms]
-
-AU-TEAM.IRPO = {
-
-         kdc = br-srv.au-team.irpo
-
-         admin_server = br-srv.au-team.irpo
-
-}
-
-[domain_realm]
-
-.au-team.irpo = AU-TEAM.IRPO
-
-au-team.irpo = AU-TEAM.IRPO
-```
-
-Файл целиком (со скриншота):
-
-```ini
 # To opt out of the system crypto policies configuration of krb5, remove the
 # symlink at /etc/krb5.conf.d/crypto-policies which will not be recreated.
 includedir /etc/krb5.conf.d/
