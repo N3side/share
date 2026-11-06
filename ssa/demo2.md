@@ -271,10 +271,6 @@ realmd_tags = manages-system joined-with-adcli
 systemctl restart sssd
 ```
 
-Далее переходим в «Настройки» - «Сетевые учетные записи». Выбираем Kerberos, вводим `administrator@AU-TEAM.IRPO` и `P@ssw0rd`
-
-![](/cache/Pasted%20image%2020261103222644.png)
-
 ```bash
 sss_cache -E
 ```
