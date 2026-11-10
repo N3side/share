@@ -838,21 +838,6 @@ iptables-save > /etc/sysconfig/iptables
 ssh -l sshuser <ip-адрес br-rtr ens33> -p 2027
 ```
 
-```text
-[root@hq-cli ~]# ssh -l sshuser 172.16.2.2 -p 2027
-The authenticity of host '[172.16.2.2]:2027 ([172.16.2.2]:2027)' can't be established.
-ED25519 key fingerprint is SHA256:5Yhkuj2/mcT05Ok//5jcgJUg0B5aR8FzBI9l9yAROe8.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '[172.16.2.2]:2027' (ED25519) to the list of known hosts.
-Authorized access only
-sshuser@172.16.2.2's password:
-Last login: Fri Sep 25 23:37:18 2026 from 172.30.200.1
-[sshuser@br-srv ~]$ exit
-выход
-Connection to 172.16.2.2 closed.
-[root@hq-cli ~]# _
-```
 
 ### На HQ-RTR
 
