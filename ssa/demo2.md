@@ -707,8 +707,8 @@ site:latest        015b4b821098        353MB             0B
 ```
 
 ```bash
-cp /mnt/docker/compose.yml .
-docker-compose -f compose.yml up -d
+cp /mnt/docker/compose.yaml .
+docker-compose -f compose.yaml up -d
 ```
 
 ### На HQ-CLI
