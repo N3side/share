@@ -401,26 +401,7 @@ nano /etc/fstab
 /dev/md0	/raid	ext4	defaults	0	0
 ```
 
-Результат:
-
-```text
-#
-# /etc/fstab
-# Created by anaconda on Fri Jul 24 17:41:28 2026
-#
-# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
-# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
-#
-# After editing this file, run 'systemctl daemon-reload' to update systemd
-# units generated from this file.
-#
-UUID=5a10eabd-ee27-4f5c-8fad-87857c209abb /      ext4    defaults        1 1
-UUID=342957d0-30a9-40f0-ad5f-2490857e4a9a /boot  ext4    defaults        1 2
-UUID=500dd684-3a0f-4b69-9ad7-5319cef3c1ac none   swap    defaults        0 0
-/dev/md0        /raid   ext4    defaults        0       0
-```
-
-Выходим из nano: нажимаем ctrl+x, затем y
+потом
 
 ```bash
 systemctl daemon-reload
@@ -432,14 +413,7 @@ df -h
 
 ```text
 [root@hq-srv ~]# df -h
-Файловая система Размер Использовано Дост Использовано% Смонтировано в
-devtmpfs          4,0M            0 4,0M            0% /dev
-tmpfs             985M            0 985M            0% /dev/shm
-tmpfs             394M         3,0M 391M            1% /run
-/dev/sda4          22G         3,0G  18G           15% /
-tmpfs             985M            0 985M            0% /tmp
-/dev/sda2         974M         212M 695M           24% /boot
-tmpfs             197M         4,0K 197M            1% /run/user/0
+...
 /dev/md0          2,0G          24K 1,9G            1% /raid
 ```
 
