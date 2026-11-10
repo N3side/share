@@ -658,29 +658,6 @@ interpreter_python=/usr/bin/python
 ansible -m ping all
 ```
 
-Вывод должен быть следующим:
-
-```text
-[root@br-srv ~]# ansible -m ping all
-192.168.200.2 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}
-192.168.100.10 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}
-172.30.100.1 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}
-192.168.100.1 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}
-[root@br-srv ~]# _
-```
-
 ---
 
 ## 6. Разверните веб приложение в docker на сервере BR-SRV
