@@ -621,19 +621,6 @@ nano /etc/ansible/demo.ini
 <ip-адрес br-rtr> ansible_user=net_admin
 ```
 
-Пример заполненного файла (со скриншота):
-
-```ini
-[HQ_SRV]
-192.168.100.10 ansible_user=sshuser ansible_port=2027
-[HQ_CLI]
-192.168.200.2 ansible_user=username
-[HQ_RTR]
-192.168.100.1 ansible_user=net_admin
-[BR_RTR]
-172.30.100.1 ansible_user=net_admin
-```
-
 Выходим из nano: нажимаем ctrl+x, затем y
 
 ```bash
