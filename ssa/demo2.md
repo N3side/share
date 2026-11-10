@@ -29,17 +29,8 @@ systemctl restart named
 
 ```bash
 dnf install -y samba* krb5*
-```
-
-```bash
 mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
-```
-
-```bash
 mv /etc/krb5.conf /etc/krb5.conf.bak
-```
-
-```bash
 nano /etc/krb5.conf.d/crypto-policies
 ```
 
@@ -74,9 +65,6 @@ Retype password:
 
 ```bash
 cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
-```
-
-```bash
 nano /etc/krb5.conf
 ```
 
@@ -160,13 +148,7 @@ Reset account lockout after (mins): 30
 
 ```bash
 samba-tool group add hq
-```
-
-```bash
 for i in {1..5}; do samba-tool user add hquser$i P@ssw0rd;samba-tool group addmembers hq hquser$i; done
-```
-
-```bash
 samba-tool group listmembers hq
 ```
 
@@ -182,19 +164,9 @@ hquser3
 ### На HQ-CLI
 
 ```bash
-sudo -i
-```
-
-```text
+su -
 P@ssw0rd
-P@ssw0rd
-```
-
-```bash
 echo "<ip-адрес br-srv> au-team.irpo" >> /etc/hosts
-```
-
-```bash
 nano /etc/krb5.conf
 ```
 
@@ -265,8 +237,6 @@ krb5_realm = AU-TEAM.IRPO
 realmd_tags = manages-system joined-with-adcli
 ```
 
-Выходим из nano: нажимаем ctrl+x, затем y
-
 ```bash
 systemctl restart sssd
 sss_cache -E
@@ -286,8 +256,6 @@ nano /etc/sudoers
 ## Same thing without a password
 # %wheel        ALL=(ALL)       NOPASSWD: ALL
 ```
-
-Выходим: нажимаем ctrl+x, затем y
 
 Проверяем:
 
