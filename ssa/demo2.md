@@ -855,20 +855,6 @@ iptables-save > /etc/sysconfig/iptables
 ssh -l sshuser <ip-адрес hq-rtr ens33> -p 2027
 ```
 
-```text
-[root@hq-cli ~]# ssh -l sshuser 172.16.1.2 -p 2027
-The authenticity of host '[172.16.1.2]:2027 ([172.16.1.2]:2027)' can't be established.
-ED25519 key fingerprint is SHA256:5Yhkuj2/mcT05Ok//5jcgJUg0B5aR8FzBI9l9yAROe8.
-This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:1: [172.16.2.2]:2027
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '[172.16.1.2]:2027' (ED25519) to the list of known hosts.
-Authorized access only
-sshuser@172.16.1.2's password:
-Last login: Fri Sep 25 22:42:34 2026 from 172.30.200.10
-[sshuser@hq-srv ~]$
-```
-
 ---
 
 ## 9. Удобным способом установите приложение Яндекс Браузер на HQ-CLI
