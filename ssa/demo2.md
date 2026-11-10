@@ -269,13 +269,7 @@ realmd_tags = manages-system joined-with-adcli
 
 ```bash
 systemctl restart sssd
-```
-
-```bash
 sss_cache -E
-```
-
-```bash
 nano /etc/sudoers
 ```
 
@@ -428,17 +422,8 @@ zram0  252:0    0  1,9G  0 disk  [SWAP]
 
 ```bash
 mdadm --detail --scan --verbose >> /etc/mdadm.conf
-```
-
-```bash
 mkfs.ext4 /dev/md0
-```
-
-```bash
 mkdir /raid
-```
-
-```bash
 nano /etc/fstab
 ```
 
@@ -471,13 +456,7 @@ UUID=500dd684-3a0f-4b69-9ad7-5319cef3c1ac none   swap    defaults        0 0
 
 ```bash
 systemctl daemon-reload
-```
-
-```bash
 mount -a
-```
-
-```bash
 df -h
 ```
 
@@ -508,21 +487,9 @@ tmpfs             197M         4,0K 197M            1% /run/user/0
 
 ```bash
 dnf install nfs4-acl-tools exportfs -y
-```
-
-```bash
 mkdir /raid/nfs
-```
-
-```bash
 chown nobody:nobody /raid/nfs
-```
-
-```bash
 chmod 777 /raid/nfs
-```
-
-```bash
 nano /etc/exports
 ```
 
@@ -536,9 +503,6 @@ nano /etc/exports
 
 ```bash
 exportfs -a
-```
-
-```bash
 systemctl enable --now nfs-server
 ```
 
@@ -546,9 +510,6 @@ systemctl enable --now nfs-server
 
 ```bash
 mkdir /mnt/nfs
-```
-
-```bash
 nano /etc/fstab
 ```
 
@@ -581,9 +542,6 @@ UUID=0688e43e-970c-42d3-bfda-da3fbbadcbee none   swap    defaults        0 0
 
 ```bash
 systemctl daemon-reload
-```
-
-```bash
 mount -a
 ```
 
@@ -644,9 +602,6 @@ hwtimestamp *
 
 ```bash
 systemctl restart chronyd
-```
-
-```bash
 chronyc sources
 ```
 
@@ -684,9 +639,6 @@ server 172.16.2.1 iburst prefer
 
 ```bash
 systemctl restart chronyd
-```
-
-```bash
 chronyc sources
 ```
 
@@ -710,13 +662,7 @@ MS Name/IP address         Stratum Poll Reach LastRx Last sample
 
 ```bash
 dnf install ansible
-```
-
-```bash
 mkdir /etc/ansible
-```
-
-```bash
 nano /etc/ansible/demo.ini
 ```
 
@@ -758,17 +704,8 @@ ssh-keygen -t rsa
 
 ```bash
 ssh-copy-id -p 2027 sshuser@<ip-адрес hq-srv>
-```
-
-```bash
 ssh-copy-id username@<ip-адрес hq-cli>
-```
-
-```bash
 ssh-copy-id net_admin@<ip-адрес hq-rtr>
-```
-
-```bash
 ssh-copy-id net_admin@<ip-адрес br-rtr>
 ```
 
@@ -842,25 +779,10 @@ _![](/cache/Pasted%20image%2020261103222728.png)
 
 ```bash
 mount /dev/cdrom /mnt
-```
-
-```bash
 dnf install docker-ce docker-compose -y
-```
-
-```bash
 systemctl enable --now docker
-```
-
-```bash
 docker --version
-```
-
-```bash
 docker load < /mnt/docker/site_latest.tar
-```
-
-```bash
 docker load < /mnt/docker/mariadb_latest.tar
 ```
 
@@ -880,9 +802,6 @@ site:latest        015b4b821098        353MB             0B
 
 ```bash
 cp /mnt/docker/compose.yml .
-```
-
-```bash
 docker-compose -f compose.yml up -d
 ```
 
@@ -924,13 +843,7 @@ docker-compose -f compose.yml up -d
 
 ```bash
 mount /dev/cdrom /mnt
-```
-
-```bash
 dnf install mariadb-server httpd php php-mysqlnd php-cli -y
-```
-
-```bash
 systemctl enable --now mariadb httpd
 ```
 
@@ -1011,9 +924,6 @@ Thanks for using MariaDB!
 
 ```bash
 mysql -u root -p
-```
-
-```text
 P@ssw0rd
 ```
 
@@ -1027,17 +937,8 @@ flush privileges;
 
 ```bash
 mysql -u root -p webdb < /mnt/web/dump.sql
-```
-
-```bash
 cp /mnt/web/index.php /var/www/html
-```
-
-```bash
 cp /mnt/web/logo.png /var/www/html
-```
-
-```bash
 nano /var/www/html/index.php
 ```
 
@@ -1074,13 +975,7 @@ systemctl restart httpd
 
 ```bash
 iptables -t nat -A PREROUTING -p tcp -m tcp -d <ip-адрес br-rtr ens33> --dport 8080 -j DNAT --to-destination <ip-адрес br-srv>:8080
-```
-
-```bash
 iptables -t nat -A PREROUTING -p tcp -m tcp -d <ip-адрес br-rtr ens33> --dport 2027 -j DNAT --to-destination <ip-адрес br-srv>:2027
-```
-
-```bash
 iptables-save > /etc/sysconfig/iptables
 ```
 
@@ -1112,13 +1007,7 @@ Connection to 172.16.2.2 closed.
 
 ```bash
 iptables -t nat -A PREROUTING -p tcp -m tcp -d <ip-адрес hq-rtr> --dport 8080 -j DNAT --to-destination <ip-адрес hq-srv>:80
-```
-
-```bash
 iptables -t nat -A PREROUTING -p tcp -m tcp -d <ip-адрес hq-rtr> --dport 2027 -j DNAT --to-destination <ip-адрес hq-srv>:2027
-```
-
-```bash
 iptables-save > /etc/sysconfig/iptables
 ```
 
