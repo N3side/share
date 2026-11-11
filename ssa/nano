@@ -4,10 +4,11 @@
 alt + u - отменить действие
 
 shift + ↑↓ - выделить текст
-alt + u - скопировать выделенный текст
+alt + a - скопировать выделенный текст
+ctrl + u - вставить текст из буфера обмена
 ctrl + k - вырезать выделенный текст
 alt + delete - удалить выделенный текст
-ctrl + u - вставить скопированный текст
+
 
 
 10.39.0.104##canvas#mainCanvas:style(width: 100vw !important; height: 100vh !important; transform: none !important)
