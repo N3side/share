@@ -106,8 +106,6 @@ samba-tool domain passwordsettings set --min-pwd-length=8 --account-lockout-thre
 samba-tool domain passwordsettings show
 ```
 
-### На BR-SRV
-
 ```bash
 samba-tool group add hq
 for i in {1..5}; do samba-tool user add hquser$i P@ssw0rd;samba-tool group addmembers hq hquser$i; done
