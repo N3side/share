@@ -200,21 +200,7 @@ realmd_tags = manages-system joined-with-adcli
 ```bash
 systemctl restart sssd
 sss_cache -E
-nano /etc/sudoers
-```
-
-Пишем в файл следующую строку: `%hq@au-team.irpo ALL=(ALL) NOPASSWD: /bin/cat, /bin/grep, /bin/id`
-
-```text
-## Allows members of the 'sys' group to run networking, software,
-## service management apps and more.
-# %sys ALL = NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS
-
-## Allows people in group wheel to run all commands
-%wheel  ALL=(ALL)       ALL
-%hq@au-team.irpo ALL=(ALL) NOPASSWD: /bin/cat, /bin/grep, /bin/id
-## Same thing without a password
-# %wheel        ALL=(ALL)       NOPASSWD: ALL
+echo "%hq@au-team.irpo ALL=(ALL) NOPASSWD: /bin/cat, /bin/grep, /bin/id" >> /etc/sudoers
 ```
 
 Проверяем:
