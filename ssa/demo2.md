@@ -53,16 +53,6 @@ samba-tool domain provision --use-rfc2307 --interactive
 
 Жмём Enter 3 раза. Далее на моменте DNS backend пишем NONE. Затем указываем пароль администратора `P@ssw0rd`
 
-```text
-[root@br-srv ~]# samba-tool domain provision --use-rfc2307 --interactive
-Realm [AU-TEAM.IRPO]:
-Domain [AU-TEAM]:
-Server Role (dc, member, standalone) [dc]:
-DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]:  NONE
-Administrator password:
-Retype password:
-```
-
 ```bash
 cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
 nano /etc/krb5.conf
