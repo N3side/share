@@ -8,3 +8,6 @@ alt + u - скопировать выделенный текст
 ctrl + k - вырезать выделенный текст
 alt + delete - удалить выделенный текст
 ctrl + u - вставить скопированный текст
+
+
+10.39.0.104##canvas#mainCanvas:style(width: 100vw !important; height: 100vh !important; transform: none !important)
