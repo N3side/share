@@ -94,12 +94,6 @@ systemctl enable --now samba
 kinit administrator@AU-TEAM.IRPO
 ```
 
-```text
-[root@br-srv ~]# kinit administrator@AU-TEAM.IRPO
-Password for administrator@AU-TEAM.IRPO:
-Warning: Your password will expire in 41 days on Чт 05 ноя 2026 17:48:30
-```
-
 Задаем минимальную длину пароля 8 символов и порог блокировки 5 попыток:
 
 ```bash
@@ -110,28 +104,6 @@ samba-tool domain passwordsettings set --min-pwd-length=8 --account-lockout-thre
 
 ```bash
 samba-tool domain passwordsettings show
-```
-
-В выводе должно быть:
-
-```text
-[root@br-srv ~]# samba-tool domain passwordsettings set --min-pwd-length=8 --account-lockout-threshold=5
-Minimum password length changed!
-Account lockout threshold changed!
-All changes applied successfully!
-[root@br-srv ~]# samba-tool domain passwordsettings show
-Password information for domain 'DC=au-team,DC=irpo'
-
-Password complexity: on
-Store plaintext passwords: off
-Password history length: 24
-Minimum password length: 8
-Minimum password age (days): 1
-Maximum password age (days): 42
-Account lockout duration (mins): 30
-Account lockout threshold (attempts): 5
-Reset account lockout after (mins): 30
-[root@br-srv ~]# _
 ```
 
 ### На BR-SRV
