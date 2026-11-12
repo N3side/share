@@ -133,30 +133,6 @@ nano /etc/krb5.conf
 Приводим файл к следующему виду:
 
 ```ini
-# To opt out of the system crypto policies configuration of krb5, remove the
-# symlink at /etc/krb5.conf.d/crypto-policies which will not be recreated.
-includedir /etc/krb5.conf.d/
-
-[logging]
-    default = FILE:/var/log/krb5libs.log
-    kdc = FILE:/var/log/krb5kdc.log
-    admin_server = FILE:/var/log/kadmind.log
-
-[libdefaults]
-    dns_lookup_realm = false
-    ticket_lifetime = 24h
-    renew_lifetime = 7d
-    forwardable = true
-    rdns = false
-    pkinit_anchors = FILE:/etc/pki/tls/certs/ca-bundle.crt
-    spake_preauth_groups = edwards25519
-    dns_canonicalize_hostname = fallback
-    qualify_shortname = ""
-#    default_realm = EXAMPLE.COM
-    default_ccache_name = KEYRING:persistent:%{uid}
-udp_preference_limit = 0
-default_realm = AU-TEAM.IRPO
-
 [realms]
 AU-TEAM.IRPO = {
     kdc = br-srv.au-team.irpo
@@ -207,41 +183,9 @@ echo "%hq@au-team.irpo ALL=(ALL) NOPASSWD: /bin/cat, /bin/grep, /bin/id" >> /etc
 
 ```bash
 id hquser1@AU-TEAM.IRPO
-```
-
-```bash
 su - hquser1@AU-TEAM.IRPO
-```
-
-```text
-[root@hq-cli ~]# id hquser1@AU-TEAM.IRPO
-uid=1358401103(hquser1@au-team.irpo) gid=1358400513(domain users@au-team.irpo) группы=1358400513(domain users@au-team.irpo),1358401102(hq@au-team.irpo)
-[root@hq-cli ~]# su - hquser1@AU-TEAM.IRPO
-Последний вход в систему: Чт сен 24 18:38:44 MSK 2026 на pts/0
-[hquser1@au-team.irpo@hq-cli ~]$ exit
-выход
-[root@hq-cli ~]# _
-```
-
-```bash
 sudo cat /etc/hosts | grep au-team
-```
-
-```bash
 id
-```
-
-```text
-[root@hq-cli ~]# su - hquser1@AU-TEAM.IRPO
-Последний вход в систему: Чт сен 24 18:47:08 MSK 2026 на pts/0
-[hquser1@au-team.irpo@hq-cli ~]$ sudo cat /etc/hosts | grep au-team
-172.30.200.10 br-srv au-team.irpo
-[hquser1@au-team.irpo@hq-cli ~]$ id
-uid=1358401103(hquser1@au-team.irpo) gid=1358400513(domain users@au-team.irpo
-ct=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
-[hquser1@au-team.irpo@hq-cli ~]$ exit
-выход
-[root@hq-cli ~]# _
 ```
 
 ---
