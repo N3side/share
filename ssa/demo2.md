@@ -51,9 +51,9 @@ nano /etc/krb5.conf.d/crypto-policies
 
 ```ini
 [libdefaults]
-default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes256-cts-hmac-sha384-192
-default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes256-cts-hmac-sha384-192
-permitted_enctypes = aes256-cts-hmac-sha1-96 aes256-cts-hmac-sha384-192 ca
+default_tgs_enctypes = длинная строка не трогать (скопированная)
+default_tkt_enctypes = длинная строка не трогать (скопированная)
+permitted_enctypes = длинная строка не трогать
 ```
 
 Для этого ставим курсор на существующую строчку `permitted_enctypes`, нажимаем CTRL+K и три раза CTRL+U. После этого изменяем начало первых двух строчек.
