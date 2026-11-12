@@ -77,24 +77,6 @@ nano /etc/krb5.conf
 kdc = br-srv.au-team.irpo
 ```
 
-Результат:
-
-```ini
-[libdefaults]
-        default_realm = AU-TEAM.IRPO
-        dns_lookup_realm = false
-        dns_lookup_kdc = true
-
-[realms]
-AU-TEAM.IRPO = {
-        default_domain = au-team.irpo
-        kdc = br-srv.au-team.irpo
-}
-
-[domain_realm]
-        br-srv = AU-TEAM.IRPO
-```
-
 Выходим из nano: нажимаем ctrl+x, затем y
 
 ```bash
