@@ -153,18 +153,7 @@ nano /etc/sssd/sssd.conf
 Дописываем в подчёркнутой строчке `br-srv.` (как на скриншоте):
 
 ```ini
-[sssd]
-domains = au-team.irpo
-config_file_version = 2
-services = nss, pam
-
-[domain/au-team.irpo]
-default_shell = /bin/bash
 ad_server = br-srv.au-team.irpo
-krb5_store_password_if_offline = True
-cache_credentials = True
-krb5_realm = AU-TEAM.IRPO
-realmd_tags = manages-system joined-with-adcli
 ```
 
 ```bash
