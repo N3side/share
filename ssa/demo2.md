@@ -120,7 +120,6 @@ hquser3
 
 ```bash
 su -
-P@ssw0rd
 echo "<ip-адрес br-srv> au-team.irpo" >> /etc/hosts
 nano /etc/krb5.conf
 ```
