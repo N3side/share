@@ -1,10 +1,23 @@
 # МОДУЛЬ 2
 
-> Примечание: текст для копирования под скриншотами.
-> 
-> Вместо `<ip-адрес чего-то>` пишем только адрес без `<>`.
-> 
-> Чтобы узнать ip-адрес устройства, смотрим в `nmtui` или командой `ip a`.
+br-srv:
+```
+krb5* samba*
+ansible
+docker-ce docker-compose
+```
+
+hq-srv:
+```
+nfs4-acl-tools exportfs
+mariadb-server httpd php php-mysqlnd php-cli
+```
+
+hq-cli:
+```
+yandex-browser
+```
+
 
 ---
 
