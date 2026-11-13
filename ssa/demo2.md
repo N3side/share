@@ -191,16 +191,8 @@ lsblk
 ```text
 [root@hq-srv ~]# lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0  25G  0 disk
-├─sda1   8:1    0   1M  0 part
-├─sda2   8:2    0   1G  0 part /boot
-├─sda3   8:3    0   2G  0 part [SWAP]
-└─sda4   8:4    0 21,9G 0 part /
 sdb      8:16   0   1G  0 disk
 sdc      8:32   0   1G  0 disk
-sr0     11:0    1  5,7G 0 rom
-zram0  252:0    0  1,9G 0 disk [SWAP]
-[root@hq-srv ~]#
 ```
 
 Форматируем диски:
@@ -216,25 +208,26 @@ n
 w
 ```
 
-Жмём Enter 3 раза. Аналогично для диска sdc
+```bash
+fdisk /dev/sdc
+```
+
+```text
+g
+n
+(Enter 3 раза)
+w
+```
 
 Должно получиться так:
 
 ```text
 [root@hq-srv ~]# lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0  25G  0 disk
-├─sda1   8:1    0   1M  0 part
-├─sda2   8:2    0   1G  0 part /boot
-├─sda3   8:3    0   2G  0 part [SWAP]
-└─sda4   8:4    0 21,9G 0 part /
 sdb      8:16   0   1G  0 disk
 └─sdb1   8:17   0 1022M 0 part
 sdc      8:32   0   1G  0 disk
 └─sdc1   8:33   0 1022M 0 part
-sr0     11:0    1  5,7G 0 rom
-zram0  252:0    0  1,9G 0 disk [SWAP]
-[root@hq-srv ~]#
 ```
 
 ```bash
@@ -245,20 +238,12 @@ mdadm --create /dev/md0 --level=0 --raid-device=2 /dev/sdb1 /dev/sdc1
 
 ```text
 NAME   MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINTS
-sda      8:0    0   25G  0 disk
-├─sda1   8:1    0    1M  0 part
-├─sda2   8:2    0    1G  0 part  /boot
-├─sda3   8:3    0    2G  0 part  [SWAP]
-└─sda4   8:4    0 21,9G  0 part  /
 sdb      8:16   0    1G  0 disk
 └─sdb1   8:17   0 1022M  0 part
   └─md0  9:0    0    2G  0 raid0
 sdc      8:32   0    1G  0 disk
 └─sdc1   8:33   0 1022M  0 part
   └─md0  9:0    0    2G  0 raid0
-sr0     11:0    1  5,7G  0 rom
-zram0  252:0    0  1,9G  0 disk  [SWAP]
-[root@hq-srv ~]# _
 ```
 
 ```bash
