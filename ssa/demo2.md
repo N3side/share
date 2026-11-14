@@ -323,18 +323,7 @@ nano /etc/fstab
 
 ```text
 #
-# /etc/fstab
-# Created by anaconda on Wed Sep 16 10:46:48 2026
-#
-# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
-# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
-#
-# After editing this file, run 'systemctl daemon-reload' to update systemd
-# units generated from this file.
-#
-UUID=2b983fed-7fda-4960-acac-1d5176d8d5dc /      ext4    defaults        1 1
-UUID=e1105e14-afe6-469a-bdb9-876068872edb /boot  ext4    defaults        1 2
-UUID=0688e43e-970c-42d3-bfda-da3fbbadcbee none   swap    defaults        0 0
+...
 192.168.100.10:/raid/nfs        /mnt/nfs        nfs     auto    0       0
 ```
 
@@ -348,18 +337,8 @@ mount -a
 Проверяем с помощью команды `df -h` (должна появиться строка `<ip-адрес hq-srv>:/raid/nfs`):
 
 ```text
-[root@hq-cli ~]# df -h
-Файловая система         Размер Использовано  Дост Использовано% Смонтировано в
-devtmpfs                   4,0M            0  4,0M            0% /dev
-tmpfs                      2,0G            0  2,0G            0% /dev/shm
-tmpfs                      784M         3,4M  780M            1% /run
-/dev/sda4                   40G         9,4G   28G           26% /
-tmpfs                      2,0G         8,0K  2,0G            1% /tmp
-/dev/sda2                  974M         223M  685M           25% /boot
-tmpfs                      392M          92K  392M            1% /run/user/1000
-/dev/sr0                   5,7G         5,7G     0          100% /run/media/username/redos-DVD-x86_64-8
+...
 192.168.100.10:/raid/nfs   2,0G            0  1,9G            0% /mnt/nfs
-[root@hq-cli ~]#
 ```
 
 ---
