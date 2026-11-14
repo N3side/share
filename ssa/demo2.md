@@ -319,24 +319,15 @@ nano /etc/fstab
 <ip-адрес hq-srv>:/raid/nfs	/mnt/nfs	nfs	auto	0	0
 ```
 
-Результат:
-
-```text
-#
-...
-192.168.100.10:/raid/nfs        /mnt/nfs        nfs     auto    0       0
-```
-
-Выходим из nano: нажимаем ctrl+x, затем y
-
 ```bash
 systemctl daemon-reload
 mount -a
 ```
 
-Проверяем с помощью команды `df -h` (должна появиться строка `<ip-адрес hq-srv>:/raid/nfs`):
 
-```text
+```bash
+
+df -h
 ...
 192.168.100.10:/raid/nfs   2,0G            0  1,9G            0% /mnt/nfs
 ```
