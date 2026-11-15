@@ -398,11 +398,8 @@ chronyc sources
 
 ```bash
 dnf install ansible
-mkdir /etc/ansible
 nano /etc/ansible/demo.ini
 ```
-
-Пишем в файл:
 
 ```ini
 [HQ_SRV]
@@ -414,8 +411,6 @@ nano /etc/ansible/demo.ini
 [BR_RTR]
 <ip-адрес br-rtr> ansible_user=net_admin
 ```
-
-Выходим из nano: нажимаем ctrl+x, затем y
 
 ```bash
 ssh-keygen -t rsa
@@ -445,8 +440,6 @@ ask_pass = False
 host_key_checking = False
 interpreter_python=/usr/bin/python
 ```
-
-Выходим из nano: нажимаем ctrl+x, затем y
 
 ```bash
 ansible -m ping all
