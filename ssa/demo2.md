@@ -349,9 +349,6 @@ nano /etc/chrony.conf
 Делаем вот так вот:
 ```text
 server ntp1.vniiftri.ru iburst
-#server ntp2.vniiftri.ru iburst
-#server ntp3.vniiftri.ru iburst
-#server ntp4.vniiftri.ru iburst
 local stratum 5
 allow 0/0
 hwtimestamp *
@@ -375,10 +372,6 @@ nano /etc/chrony.conf
 Комментируем все сервера и добавляем созданный:
 
 ```text
-#server ntp1.vniiftri.ru iburst
-#server ntp2.vniiftri.ru iburst
-#server ntp3.vniiftri.ru iburst
-#server ntp4.vniiftri.ru iburst
 server 172.16.2.1 iburst prefer
 ```
 
