@@ -346,19 +346,8 @@ df -h
 nano /etc/chrony.conf
 ```
 
-Комментируем крайние три сервера и добавляем:
-
+Делаем вот так вот:
 ```text
-local stratum 5
-allow 0/0
-hwtimestamp *
-```
-
-Результат:
-
-```text
-# Use public servers from the pool.ntp.org project.
-# Please consider joining the pool (https://www.pool.ntp.org/join.html).
 server ntp1.vniiftri.ru iburst
 #server ntp2.vniiftri.ru iburst
 #server ntp3.vniiftri.ru iburst
@@ -368,19 +357,13 @@ allow 0/0
 hwtimestamp *
 ```
 
-Выходим из nano: нажимаем ctrl+x, затем y
-
 ```bash
 systemctl restart chronyd
 chronyc sources
 ```
 
 ```text
-[root@isp ~]# chronyc sources
-MS Name/IP address         Stratum Poll Reach LastRx Last sample
-===============================================================================
 ^* ntp1.vniiftri.ru              1   6    37    55   -102us[-2178us] +/-   10ms
-[root@isp ~]# _
 ```
 
 ### На HQ-SRV, HQ-CLI, BR-RTR, BR-SRV
@@ -390,12 +373,6 @@ nano /etc/chrony.conf
 ```
 
 Комментируем все сервера и добавляем созданный:
-
-```text
-server <ip-адрес isp ens34> iburst prefer
-```
-
-Результат:
 
 ```text
 #server ntp1.vniiftri.ru iburst
@@ -413,11 +390,7 @@ chronyc sources
 ```
 
 ```text
-[root@hq-srv ~]# chronyc sources
-MS Name/IP address         Stratum Poll Reach LastRx Last sample
-===============================================================================
 ^* 172.16.2.1                    2   6    77    53    +75us[ +430us] +/- 9983us
-[root@hq-srv ~]# _
 ```
 
 ---
