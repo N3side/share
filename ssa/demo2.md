@@ -456,8 +456,6 @@ ansible -m ping all
 
 ### На BR-SRV
 
-Перед развертыванием выполняем монтирование ISO образа с необходимыми Docker-образами. Для этого переходим через VMWare WorkStation в настройки виртуальной машины. Там выбираем CD/DVD driver 1 > Use ISO image file > Browse > Additional.iso > Open > OK.
-
 ![](/cache/Pasted%20image%2020261103222718.png)
 
 Выходит уведомление, соглашаемся:
@@ -486,11 +484,9 @@ docker images
 ```
 
 ```text
-[root@br-srv ~]# docker images
 IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
 mariadb:10.11      bc52d24721da        327MB             0B
 site:latest        015b4b821098        353MB             0B
-[root@br-srv ~]#
 ```
 
 ```bash
