@@ -472,7 +472,6 @@ _![](/cache/Pasted%20image%2020261103222728.png)
 mount /dev/cdrom /mnt
 dnf install docker-ce docker-compose -y
 systemctl enable --now docker
-docker --version
 docker load < /mnt/docker/site_latest.tar
 docker load < /mnt/docker/mariadb_latest.tar
 ```
@@ -481,12 +480,7 @@ docker load < /mnt/docker/mariadb_latest.tar
 
 ```bash
 docker images
-```
-
-```text
-IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
-mariadb:10.11      bc52d24721da        327MB             0B
-site:latest        015b4b821098        353MB             0B
+// mariadb и site:latest должны быть
 ```
 
 ```bash
