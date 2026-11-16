@@ -506,8 +506,6 @@ docker-compose -f compose.yaml up -d
 
 ### На HQ-SRV
 
-Перед развертыванием выполняем монтирование ISO образа с необходимыми Docker-образами. Для этого переходим через VMWare WorkStation в настройки виртуальной машины. Там выбираем CD/DVD driver 1 > Use ISO image file > Browse > Additional.iso > Open > OK.
-
 ![](/cache/Pasted%20image%2020261103222757.png)
 
 Выходит уведомление, соглашаемся
@@ -564,7 +562,7 @@ cp /mnt/web/logo.png /var/www/html
 nano /var/www/html/index.php
 ```
 
-Меняем значения как на скриншоте:
+Меняем значения как тут:
 
 ```php
 <?php
@@ -573,8 +571,6 @@ $username = "web";
 $password = "P@ssw0rd";
 $dbname = "webdb";
 ```
-
-Выходим из nano: нажимаем ctrl+x, затем y
 
 ```bash
 systemctl restart httpd
