@@ -458,9 +458,7 @@ ansible -m ping all
 
 ![](/cache/Pasted%20image%2020261103222718.png)
 
-Выходит уведомление, соглашаемся:
-
-_![](/cache/Pasted%20image%2020261103222728.png)
+Выходит уведомление, соглашаемся
 
 После этого заново заходим в настройки BR-SRV, выбираем CD/DVD driver 1 > Connected > OK.
 
@@ -512,9 +510,7 @@ docker-compose -f compose.yaml up -d
 
 ![](/cache/Pasted%20image%2020261103222757.png)
 
-Выходит уведомление, соглашаемся:
-
-![](/cache/Pasted%20image%2020261103222803.png)
+Выходит уведомление, соглашаемся
 
 После этого заново заходим в настройки BR-SRV, выбираем CD/DVD driver 1 > Connected > OK.
 
