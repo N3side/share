@@ -18,7 +18,6 @@ hq-cli:
 yandex-browser
 ```
 
-
 ---
 
 ## 1. Настройте установленный контроллер домена Samba DC на сервере BR-SRV
@@ -31,63 +30,6 @@ yandex-browser
 - Создайте группу hq, введите в группу созданных пользователей
 - Убедитесь, что пользователи группы hq имеют право аутентифицироваться на HQ-CLI
 - Пользователи группы hq должны иметь возможность повышать привилегии для выполнения ограниченного набора команд: cat, grep, id. Запускать другие команды с повышенными привилегиями пользователи группы права не имеют.
-
-### На HQ-SRV
-
-```bash
-systemctl restart named
-```
-
-### На BR-SRV
-
-```bash
-dnf install -y samba* krb5*
-mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
-mv /etc/krb5.conf /etc/krb5.conf.bak
-nano /etc/krb5.conf.d/crypto-policies
-```
-
-Изменяем файл следующим образом:
-
-```ini
-[libdefaults]
-default_tgs_enctypes = длинная строка не трогать (скопированная)
-default_tkt_enctypes = длинная строка не трогать (скопированная)
-permitted_enctypes = длинная строка не трогать
-```
-
-Для этого ставим курсор на существующую строчку `permitted_enctypes`, нажимаем CTRL+K и три раза CTRL+U. После этого изменяем начало первых двух строчек.
-
-Выходим из nano: нажимаем ctrl+x, затем y
-
-```bash
-samba-tool domain provision --use-rfc2307 --interactive
-```
-
-Жмём Enter 3 раза. Далее на моменте DNS backend пишем NONE. Затем указываем пароль администратора `P@ssw0rd`
-
-```bash
-cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
-nano /etc/krb5.conf
-```
-
-В realms добавляем kdc:
-
-```text
-kdc = br-srv.au-team.irpo
-```
-
-Выходим из nano: нажимаем ctrl+x, затем y
-
-```bash
-systemctl enable --now samba
-```
-
-Если запустить службы smb nmb winbind krb5kdc, то присоединить HQCLI к домену не получится. Решение - перезапуск BR-SRV
-
-```bash
-kinit administrator@AU-TEAM.IRPO
-```
 
 Задаем минимальную длину пароля 8 символов и порог блокировки 5 попыток:
 
