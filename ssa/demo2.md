@@ -568,5 +568,5 @@ ssh -l sshuser <ip-адрес hq-rtr ens33> -p 2027
 
 Яндекс скачай епт
 ```
-dnf install yandex-browser
+dnf install yandex-browser -y
 ```
