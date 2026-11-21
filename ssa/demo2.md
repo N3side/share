@@ -563,3 +563,10 @@ iptables-save > /etc/sysconfig/iptables
 ```bash
 ssh -l sshuser <ip-адрес hq-rtr ens33> -p 2027
 ```
+
+## 9. САМОЕ СЛОЖНОЕ ЗАДАНИЕ
+
+Яндекс скачай епт
+```
+dnf install yandex-browser
+```
